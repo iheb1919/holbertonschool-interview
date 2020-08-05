@@ -5,23 +5,18 @@
 
 
 def minOperations(n):
-    """num of operations for n H"""
-    if n < 2 or type(n) is not int:
+    """"""
+    if n < 2:
         return 0
     op_num = 0
-    action = 1
+    h = 1
     cp_all = 0
-    paste = 0
-
-    while action != n:
-        if n % action == 0:
-            cp_all = action
-            paste = action + cp_all
+    while h != n:
+        if n % h == 0:
+            cp_all = h
+            h = h + cp_all
             op_num = op_num + 2
         else:
-            paste = action + cp_all
+            h = h + cp_all
             op_num = op_num + 1
-
-        action = paste
-
     return op_num
