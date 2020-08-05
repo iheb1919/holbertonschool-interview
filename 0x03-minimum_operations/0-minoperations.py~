@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+"""
+0. Minimum Operations
+"""
+
+
+def minOperations(n):
+    """num of operations for n H"""
+    if n < 2 or type(n) is not int:
+        return 0
+    op_num = 0
+    action = 1
+    cp_all = 0
+    paste = 0
+
+    while action != n:
+        if n % action == 0:
+            cpy_all = action
+            paste = action + cp_all
+            op_num = op_num + 2
+        else:
+            paste = action + cp_all
+            op_num = op_num + 1
+
+        action = paste
+
+    return op
