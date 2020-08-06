@@ -12,24 +12,24 @@
 
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-binary_tree_t *newnode;
-newnode = malloc(sizeof(heap_t));
-if (!newnode)
-	return (NULL);
-if (parent == NULL)
-{
-newnode->parent = NULL;
-newnode->right = NULL;
-newnode->left = NULL;
-newnode->n = value;
-return (newnode);
-}
-else
-{
-newnode->parent = parent;
-newnode->right = NULL;
-newnode->left = NULL;
-newnode->n = value;
-return (newnode);
-}
+	binary_tree_t *newnode;
+	newnode = malloc(sizeof(heap_t));
+	if (!newnode)
+		return (NULL);
+	if (parent == NULL)
+	{
+		newnode->parent = NULL;
+		newnode->right = NULL;
+		newnode->left = NULL;
+		newnode->n = value;
+		return (newnode);
+	}
+	else
+	{
+		newnode->parent = parent;
+		newnode->right = NULL;
+		newnode->left = NULL;
+		newnode->n = value;
+		return (newnode);
+	}
 }
