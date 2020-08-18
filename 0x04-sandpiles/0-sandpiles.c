@@ -1,5 +1,6 @@
 #include "sandpiles.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_grid - print thr grid
