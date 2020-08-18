@@ -47,16 +47,16 @@ printf("\n");
  */
 int main(void)
 {
-int grid1[3][3] = {
-{0, 0, 0},
-{0, 0, 0},
-{0, 0, 0}
-};
-int grid2[3][3] = {
-{3, 3, 3},
-{3, 3, 3},
-{3, 3, 3}
-};
+   int grid1[3][3] = {
+        {3, 3, 3},
+        {3, 3, 3},
+        {3, 3, 3}
+    };
+    int grid2[3][3] = {
+        {1, 3, 1},
+        {3, 3, 3},
+        {1, 3, 1}
+    };
 print_grid_sum(grid1, grid2);
 sandpiles_sum(grid1, grid2);
 printf("=\n");

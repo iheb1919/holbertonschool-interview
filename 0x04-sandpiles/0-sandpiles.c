@@ -30,11 +30,18 @@ static void print_grid(int grid[3][3])
 
 void tople(int grid1[3][3])
 {
+	int grid[3][3];
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+			grid[i][j] = grid1[i][j];
+	}
 	for (int i = 0; i < 3; i++)
 	{
 		for (int k = 0; k < 3; k++)
 		{
-			if (grid1[i][k] > 3)
+			if (grid[i][k] > 3)
 			{
 				grid1[i][k] -= 4;
 				if (i + 1 < 3)
