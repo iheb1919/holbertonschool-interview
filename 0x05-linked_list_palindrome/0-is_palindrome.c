@@ -37,7 +37,7 @@ int is_palindrome(listint_t **head)
 
 	if (!head)
 		return (0);
-	if ((*head)->next == NULL)
+	if ((*head)->next == NULL || !(*head))
 		return (1);
 	new = *head;
 	s = size(head);
