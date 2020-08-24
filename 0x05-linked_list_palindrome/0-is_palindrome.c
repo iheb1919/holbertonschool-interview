@@ -36,9 +36,9 @@ int is_palindrome(listint_t **head)
 	int *array;
 
 	if (!head)
-		return (0);
-	if (!(*head) || !(*head)->next)
 		return (1);
+	if ((*head)->next == NULL)
+		return (0);
 	new = *head;
 	s = size(head);
 	array = malloc(sizeof(int) * s);
