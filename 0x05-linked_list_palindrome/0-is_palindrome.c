@@ -34,7 +34,6 @@ int is_palindrome(listint_t **head)
 	listint_t *new, *mid;
 	int i = 0, s;
 
-	printf("dddddddddddddddd");
 	if (!head)
 		return (0);
 	if (!(*head) || (*head)->next == NULL)
@@ -42,18 +41,18 @@ int is_palindrome(listint_t **head)
 	new = *head;
 	s = size(head);
 
-	 while (new)
-	 {
-	 	array[i] = new->n;
-	 	i++;
-	 	new = new->next;
-	 }
-	 for (i = 0; i < s / 2; i++)
-	 {
-	 	if (array[i] != array[s - 1 - i])
-	 		return (0);
-	 		}
-	 /**
+	while (new)
+	{
+		array[i] = new->n;
+		i++;
+		new = new->next;
+	}
+	for (i = 0; i < s / 2; i++)
+	{
+		if (array[i] != array[s - 1 - i])
+			return (0);
+	}
+	/**
 		*for (i = 0; i < s / 2; i++)
 	*{
 	*	(*head) = (*head)->next;
