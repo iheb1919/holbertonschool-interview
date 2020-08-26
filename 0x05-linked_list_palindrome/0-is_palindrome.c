@@ -31,8 +31,8 @@ int size(listint_t **head)
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *new, *mid;
-	int i = 0, s;
+	listint_t *new;
+	int i = 0, s, *array;
 
 	if (!head)
 		return (0);
@@ -40,14 +40,14 @@ int is_palindrome(listint_t **head)
 		return (1);
 	new = *head;
 	s = size(head);
-
+	array = malloc(sizeof(int) * s);
 	while (new)
 	{
 		array[i] = new->n;
 		i++;
 		new = new->next;
 	}
-	for (i = 0; i < s / 2; i++)
+	for (i = 0; i <= s / 2; i++)
 	{
 		if (array[i] != array[s - 1 - i])
 			return (0);
