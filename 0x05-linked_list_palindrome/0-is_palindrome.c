@@ -52,18 +52,5 @@ int is_palindrome(listint_t **head)
 		if (array[i] != array[s - 1 - i])
 			return (0);
 	}
-	/**
-		*for (i = 0; i < s / 2; i++)
-	*{
-	*	(*head) = (*head)->next;
-	*}
-	*mid = *head;
-	*printf("qqqqqq%d",mid->n);
-	*for (i = 0; i < s / 2; i++)
-	*{
-	*	if (new->n != mid->n)
-	*		return (0);
-	*}
-	*/
 	return (1);
 }
