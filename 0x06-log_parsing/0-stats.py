@@ -9,11 +9,12 @@ counter = 0
 try:
     for line in sys.stdin:
         linesp = line.split(" ")
-        size = linesp[-1]
-        scode = linesp[-2]
-        if scode in status_code:
-            i = status_code.index(scode)
-            number[i] += 1
+        if len(linesp) > 2:
+            size = linesp[-1]
+            scode = linesp[-2]
+            if scode in status_code:
+                i = status_code.index(scode)
+                number[i] += 1
         file_size += int(size)
         counter += 1
         if counter == 10:
