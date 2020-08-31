@@ -15,8 +15,8 @@ try:
             if scode in status_code:
                 i = status_code.index(scode)
                 number[i] += 1
-        file_size += int(size)
-        counter += 1
+            file_size += int(size)
+            counter += 1
         if counter == 10:
             print("File size: {}".format(file_size))
             for i in range(8):
