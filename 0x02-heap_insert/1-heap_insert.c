@@ -18,18 +18,18 @@ heap_t *heap_insert(heap_t **root, int value)
 	newnode->right = NULL;
 	newnode->left = NULL;
 	newnode->n = value;
-	int x = 1;
+
 	if (current == NULL)
 	{
 		return (newnode);
 	}
 	current2 = current;
-	int i = 0, j = 0;
+	int j = 0;
 		while(current)
 		{
 			if (current2)
 			{
-				current2 = cuurent2->right;
+				current2 = current2->right;
 				j++;
 			}
 			if (current->left == NULL)
@@ -44,7 +44,7 @@ heap_t *heap_insert(heap_t **root, int value)
 				current->right = newnode;
 			        break;
 			}
-			
+
 		}
 	return (*root);
 }
