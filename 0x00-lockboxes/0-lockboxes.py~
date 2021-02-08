@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+"""
+"""
+
+def canUnlockAll(boxes):
+    for i in boxes:
+        for j in i:
+            print(j)
