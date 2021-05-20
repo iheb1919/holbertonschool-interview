@@ -66,6 +66,24 @@ void _print(char *str)
 	_putchar('\n');
 }
 /**
+ * ifzeros - chek if zeros
+ * @str: input to check
+ * Return: 0 or 1
+ */
+int ifzeros(char *str)
+{
+	int i, b = 0;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] != '0')
+			b++;
+	}
+	if (b != 0)
+		return (0);
+	return (1);
+}
+/**
  * main - main function
  * @argc: argument
  * @argv: argument
@@ -74,14 +92,9 @@ void _print(char *str)
 int main(int argc, char *argv[])
 {
 	char *num1 = argv[1], *num2 = argv[2], *res = NULL;
-	int len1 = 0, len2 = 0, b = 0, i = 0;
+	int len1 = 0, len2 = 0, b = 0, i = 0, res2;
 
-	if (argc != 3)
-	{
-		_print("Error");
-		exit(98);
-	}
-	if (isint(num1) || isint(num2))
+	if (argc != 3 || isint(num1) || isint(num2))
 	{
 		_print("Error");
 		exit(98);
@@ -92,6 +105,9 @@ int main(int argc, char *argv[])
 		len2++;
 
 	res = infinite_multiplication(num1, num2, len1, len2);
+	res2 = ifzeros(res);
+	if (res2 == 0)
+	{
 	while (res[i] != '\0')
 	{
 		if (b == 0 && res[i] == '0')
@@ -104,6 +120,12 @@ int main(int argc, char *argv[])
 		}
 	}
 	_putchar('\n');
+	}
+	else
+	{
+		_putchar('0');
+		_putchar('\n');
+	}
 	free(res);
 	return (0);
 }
