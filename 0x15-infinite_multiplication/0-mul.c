@@ -8,18 +8,15 @@
  */
 int isint(char *str)
 {
-int i = 0;
+int i = 0, b = 0 ;
 
-while (str)
+for(i = 0 ; str[i] != '\0';i++) 
 {
-if (str[i] - '0' <= 9 && str[i] - '0' >= 0)
-{
-i++;
+    if (str[i]  < '0' || str[i] > '9'){
+        b++;
+    }
 }
-else
-return (0);
-}
-return (i);
+return(b);
 }
 
 /**
@@ -55,6 +52,21 @@ char *infinite_multiplication(char *num1, char *num2, int len1, int len2)
 }
 
 /**
+ * _print - function to print
+ * @str: string
+ */
+void _print(char *str)
+{
+	int i = 0;
+
+	while (*(str + i) != '\0')
+	{
+		_putchar(*(str + i));
+		i++;
+	}
+	_putchar('\n');
+}
+/**
  * main - main function
  * @argc: argument
  * @argv: argument
@@ -65,9 +77,14 @@ int main(int argc, char *argv[])
 	char *num1 = argv[1], *num2 = argv[2], *res = NULL;
 	int len1 = 0, len2 = 0, b = 0, i = 0;
 
-	if (argc != 3 || isint(num1) || isint(num2))
+	if (argc != 3)
 	{
-		printf("Error");
+		_print("Error");
+		exit(98);
+	}
+	if (isint(num1) || isint(num2))
+	{
+		_print("Error");
 		exit(98);
 	}
 	while (num1[len1])
@@ -91,18 +108,4 @@ int main(int argc, char *argv[])
 	free(res);
 	return (0);
 }
-/**
- * _print - function to print
- * @str: string
- */
-void _print(char *str)
-{
-	int i = 0;
 
-	while (*(str + i) != '\0')
-	{
-		_putchar(*(str + i));
-		i++;
-		}
-	_putchar('\n');
-}
