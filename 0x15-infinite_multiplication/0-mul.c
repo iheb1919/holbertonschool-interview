@@ -8,15 +8,14 @@
  */
 int isint(char *str)
 {
-int i = 0, b = 0 ;
+int i = 0, b = 0;
 
-for(i = 0 ; str[i] != '\0';i++) 
+for (i = 0; str[i] != '\0'; i++)
 {
-    if (str[i]  < '0' || str[i] > '9'){
-        b++;
-    }
+if (str[i]  < '0' || str[i] > '9')
+b++;
 }
-return(b);
+return (b);
 }
 
 /**
