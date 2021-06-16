@@ -11,7 +11,7 @@ skiplist_t *search_skip(skiplist_t  *listt, skiplist_t  *lit, int value)
 
 printf("Value found between indexes [%li] and [%li]\n",
 listt->index, lit->index);
-while (listt && listt->next)
+while (listt != lit->next)
 {
 printf("Value checked at index [%li] = [%i]\n", listt->index, listt->n);
 if (listt->n == value)
