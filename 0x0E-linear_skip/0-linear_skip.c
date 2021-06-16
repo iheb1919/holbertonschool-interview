@@ -24,33 +24,31 @@ return (NULL);
 }
 /**
  * linear_skip - search for a number in a linear skip
- * @list: list of type skiplis_t
- * @value: value to search into list
+ * @list: list
+ * @value: value
  * Return: NULL or node contain to value
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-skiplist_t *head;
+skiplist_t *head, *aux;
 
 if (!list)
-return (0);
-while (list && list->next && list->n < value)
-{
-while (list && list->express)
-{
+return (NULL);
 head = list;
-if (!list->express)
+while (head && head->next && head->n < value)
 {
-while (list->next)
-list = list->next;
+aux = head;
+if (!head->express)
+{
+while (head->next)
+head = head->next;
 continue;
 }
 else
 {
-list = list->express;
+head = head->express;
 }
-printf("Value checked at index [%li] = [%i]\n", list->index, list->n);
+printf("Value checked at index [%li] = [%i]\n", head->index, head->n);
 }
-}
-return (search_skip(head, list, value));
+return (search_skip(aux, head, value));
 }
