@@ -11,18 +11,15 @@
 
 int get_max(int *array, size_t size)
 {
-	int maxNum;
-    size_t i;
-
-	maxNum = array[0];
-
-	for (i = 1; i < size; i++)
-	{
-		if (array[i] > maxNum)
-			maxNum = array[i];
-	}
-
-	return (maxNum);
+maxNum;
+size_t i;
+maxNum = array[0];
+for (i = 1; i < size; i++)
+{
+if (array[i] > maxNum)
+maxNum = array[i];
+}
+return (maxNum);
 }
 
 /**
