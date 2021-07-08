@@ -1,72 +1,78 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "sort.h"
 
-
 /**
- * get_max - get max of an array.
- * @array: array.
- * @size:  size of the array.
- * Return: max.
+ * get_max - Returns the number of digits of the biggest int in the array.
  *
+ * @array: array to seach into.
+ * @size: size of the array.
+ *
+ * Return: the biggest element of the array.
  */
-
 
 int get_max(int *array, size_t size)
 {
-int max = array[0];
+	int maxNum;
+    size_t i;
 
-for (size_t i = 1; i < size; i++)
-{
-if (array[i] > max)
-max = array[i];
-}
-return (max);
+	maxNum = array[0];
+
+	for (i = 1; i < size; i++)
+	{
+		if (array[i] > maxNum)
+			maxNum = array[i];
+	}
+
+	return (maxNum);
 }
 
 /**
- * radix_sort - sorts an array of integers using the Radix sort algorithm.
- * @array: array.
- * @size:  size of the array.
+ * current_digit_sort - current_digit_sort
+ * @array: pointer
+ * @size: length
+ * @tmp: tmp
+ * @exp: exp
+ * Return: 0
  */
+int current_digit_sort(int *array, ssize_t size, int *tmp, long exp)
+{
+	ssize_t i;
+	int aux[10] = {0};
 
+	for (i = 0; i < size; i++)
+		aux[(array[i] / exp) % 10]++, tmp[i] = 0;
+	for (i = 1; i < 10; i++)
+		aux[i] += aux[i - 1];
+	for (i = size - 1; i >= 0; i--)
+		tmp[--aux[(array[i] / exp) % 10]] = array[i];
+	for (i = 0; i < size; i++)
+		array[i] = tmp[i];
+	return (0);
+}
+/**
+ * radix_sort - radix_sort
+ * @array: pointer
+ * @size: length
+ * Return: void
+ */
 void radix_sort(int *array, size_t size)
 {
+	long exp = 1;
+	int *tmp, max = 0;
 
-int bucket[10][10], bucket_cnt[10];
-size_t i;
-int  j, k, r, NOP = 0, divisor = 1, lar, pass;
+	if (!array || size < 2)
+		return;
 
-if (array == NULL || size < 2)
-return;
-lar = get_max (array, size);
-while (lar > 0)
-{
-NOP++;
-lar /= 10;
-}
-for (pass = 0; pass < NOP; pass++)
-{
-for (i = 0; i < 10; i++)
-{
-bucket_cnt[i] = 0;
-}
-for (i = 0; i < size; i++)
-{
-r = (array[i] / divisor) % 10;
-bucket[r][bucket_cnt[r]] = array[i];
-bucket_cnt[r] += 1;
-}
-i = 0;
-for (k = 0; k < 10; k++)
-{
-for (j = 0; j < bucket_cnt[k]; j++)
-{
-array[i] = bucket[k][j];
-i++;
-}
-}
-divisor *= 10;
-print_array(array, size);
-}
+	tmp = malloc(sizeof(int *) * size);
+	if (!tmp)
+		return;
+
+	max = get_max(array, size);
+
+	while (max / exp > 0)
+	{
+		current_digit_sort(array, size, tmp, exp);
+		print_array(array, size);
+		exp *= 10;
+	}
+	free(tmp);
 }
