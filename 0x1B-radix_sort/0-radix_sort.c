@@ -11,7 +11,7 @@
 
 int get_max(int *array, size_t size)
 {
-maxNum;
+int maxNum;
 size_t i;
 maxNum = array[0];
 for (i = 1; i < size; i++)
