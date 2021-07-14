@@ -6,8 +6,11 @@
 def island_perimeter(grid):
     """island_perimeter
     """
+
     s = 0
     n = len(grid)
+    if n == 0 or n > 100:
+        return 0
     m = len(grid[0])
     for i in range(n):
         for j in range(m):
