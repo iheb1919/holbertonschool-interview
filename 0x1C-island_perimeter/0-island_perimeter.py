@@ -1,22 +1,25 @@
-#!/usr/bin/pytnoh3
-"""island_perimeter
-"""
+#!/usr/bin/python3
+"""island perimeter problem"""
 
 
 def island_perimeter(grid):
-    """island_perimeter
+    """function that returns the perimeter of the island described in grid
+    Args:
+        grid ([type]): [description]
+    Returns:
+        [type]: [description]
     """
-    s = 0
-
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if (grid[i][j] == 1):
-                if ((i - 1) >= 0 and grid[i - 1][j] == 0):
-                    s += 1
-                if ((i + 1) <= len(grid) and grid[i + 1][j] == 0):
-                    s += 1
-                if ((j + 1) <= len(grid[i]) and grid[i][j + 1] == 0):
-                    s += 1
-                if ((j - 1) >= 0 and grid[i][j - 1] == 0):
-                    s += 1
-    return(s)
+    count = 0
+    m = len(grid)
+    if m == 0:
+        return 0
+    n = len(grid[0])
+    for i in range(m):
+        for j in range(n):
+            if grid[i][j] == 1:
+                count += 4
+                if i - 1 >= 0 and grid[i-1][j] == 1:
+                    count -= 2
+                if j - 1 >= 0 and grid[i][j-1] == 1:
+                    count -= 2
+    return count
