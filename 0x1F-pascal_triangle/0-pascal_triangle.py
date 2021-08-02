@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+0. Pascal's Triangle
 """
 
 
@@ -8,7 +9,9 @@ def pascal_triangle(n):
     sum = []
     x = 0
     y = 0
-    for k in range(5):
+    if (n <= 0):
+        return (sum)
+    for k in range(n - 1):
         r[x].insert(0, 0)
         r[x].append(0)
         ra = len(r[x])
